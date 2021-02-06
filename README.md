@@ -16,11 +16,16 @@ This project is implemented using ReactJS and Gatsby.
     - Server-side function to calculate attribute scores
 - Place details page
 
+
+
 # Considerations
-...
+.
+.
+.
+
+
 
 Thankyou for viewing my project!
 Please feel free to leave comments and notes on potential improvements.
 I hope you like the concept
-
-#### Luke
+-Luke
