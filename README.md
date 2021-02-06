@@ -1,8 +1,8 @@
-# NueRevie
-## A place review system
+# NueReview
+## A venue review system
 
-is an implementation of my new place review system.
-This project is implemented using ReactJS and Gatsby.
+This is an implementation of my place review system using ReactJS and Gatsby.
+The site is connected to a Firebase/Firestore backend.
 
 # TODO:
 - Seperate authenticated routes from inital page to allow for creation.
