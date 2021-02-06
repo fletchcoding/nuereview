@@ -23,9 +23,9 @@ The site is connected to a Firebase/Firestore backend.
 .
 .
 
-<p>
 Thankyou for viewing my project!
+
 Please feel free to leave comments and notes on potential improvements.
 I hope you like the concept
-    </p>
+
 #### Luke
