@@ -1,24 +1,42 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link, StaticQuery, graphql } from "gatsby";
+import { isLoggedIn } from "../../utils/auth"
+import Status from "../Status";
 
-const Header = () => (
-  <nav class="w-full flex items-center justify-between bg-blue-700 p-6">
-    <div class="items-center w-1/2 text-white mr-6 text-center">
-      <span class="font-semibold text-xl">Gatsby Firebase Auth</span>
+import styles from "./header.module.css";
+
+const Header = () => {
+  let userdisplay;
+  if (isLoggedIn()) {
+    userdisplay = (<Status />)
+  }  else {
+    userdisplay = (<span />)
+  }
+  return (
+  <nav className={styles.header}>
+    <div className={styles.userStatus}>
+      {userdisplay}
     </div>
-    <div class="w-1/2 mt-1 text-md flex flex-row-reverse">
-      <Link to="/app/profile">
-        <a class="block text-white hover:text-grey-500 mr-4">
-          Profile
-        </a>        
-      </Link>
-      <Link to="/">
-        <a class="block text-white hover:text-grey-500 mr-4">
-          Home
-        </a>
+    <div className={styles.title}>
+      <Link to="/" style={{ textDecoration: 'none'}}>
+        <StaticQuery
+          query={graphql`
+            query {
+              site {
+                siteMetadata {
+                  title
+                }
+              }
+            }
+          `}
+          render={(data) => (
+            <h1 className={styles.titletext}>{data.site.siteMetadata.title}</h1>
+          )}
+        />
       </Link>
     </div>
   </nav>
-)
+);
+}
 
-export default Header
+export default Header;

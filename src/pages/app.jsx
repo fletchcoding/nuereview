@@ -8,7 +8,6 @@ import Status from "../components/Status"
 
 const App = () => (
   <Layout>
-    <Status />
     <Router>
       <PrivateRoute path="/app/profile" component={Profile} />
       <Login path="/app/login" />

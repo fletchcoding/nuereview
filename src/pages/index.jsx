@@ -6,11 +6,10 @@ import Status from "../components/Status"
 
 const Index = () => (
   <Layout>
-    <Status />
     <View title="Firebase Authentication Starter">
       <p>
-      👋 This is a simple demo of creating dynamic pages with Gatsby that require <b>user authentication</b> and using <b>Firebase</b> as authentication provider. 
-      </p>  
+      👋 This is a simple demo of creating dynamic pages with Gatsby that require <b>user authentication</b> and using <b>Firebase</b> as authentication provider.
+      </p>
       <br/>
       <p>
        📚 It uses concepts from the
@@ -27,7 +26,7 @@ const Index = () => (
       </p>
       <br/>
       <p>
-        This is the public home, and here it is a private route to start:  
+        This is the public home, and here it is a private route to start:
         <br/>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline float-right" type="button">
           <Link to="/app/profile">Go to your profile</Link>

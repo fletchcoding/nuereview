@@ -3,11 +3,24 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Firebase Authentication`,
+    title: `NueReview`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/app/*`] }
