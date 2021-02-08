@@ -19,11 +19,11 @@
 
 .profile {
   background-color: coral;
-  border-left: 5px solid #b33000;
+  border-left: 5px solid #802200;
 }
 .profile:hover {
-  background-color: #ffdacc;
-  color: #b33000;
+  background-color: #ffece6;
+  color: #802200;
   cursor: pointer;
   transform:skewY(3deg) translateY(1px);
 }
@@ -33,7 +33,7 @@
   border-left: 5px solid #263f40;
 }
 .myplaces:hover {
-  background-color: #bfd8d9;
+  background-color: #cfe2e2;
   color: #263f40;
   cursor: pointer;
   transform:skewY(3deg) translateY(1px);
