@@ -25,7 +25,7 @@
   background-color: #ffdacc;
   color: #b33000;
   cursor: pointer;
-  transform:skewY(3deg);
+  transform:skewY(3deg) translateY(1px);
 }
 
 .myplaces {
@@ -36,7 +36,7 @@
   background-color: #bfd8d9;
   color: #263f40;
   cursor: pointer;
-  transform:skewY(3deg);
+  transform:skewY(3deg) translateY(1px);
 }
 
 .tabtext {

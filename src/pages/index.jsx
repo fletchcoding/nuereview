@@ -32,9 +32,6 @@ const Index = () => {
       <p>
         This is the public home, and here it is a private route to start:
         <br/>
-        <button type="button">
-          <Link to="/app/profile">Go to your profile</Link>
-        </button>
       </p>
     </View>
   </Layout>

@@ -5,7 +5,6 @@ This is an implementation of my place review system using ReactJS and Gatsby.
 The site is connected to a Firebase/Firestore backend.
 
 # TODO:
-- Seperate authenticated routes from inital page to allow for creation.
 - Home page description of the system
 - Profile page for user
     - Side tab link off .page css
