@@ -1,0 +1,49 @@
+.navbar {
+  position: absolute;
+  left: 799px;
+  top: 50px;
+}
+
+.navbar > div {
+  white-space: nowrap;
+  width: auto;
+  height: auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  box-shadow: 3px 2px dimgray;
+}
+
+.profile {
+  background-color: coral;
+  border-left: 5px solid #b33000;
+}
+.profile:hover {
+  background-color: #ffdacc;
+  color: #b33000;
+  cursor: pointer;
+  transform:skewY(3deg);
+}
+
+.myplaces {
+  background-color: cadetblue;
+  border-left: 5px solid #263f40;
+}
+.myplaces:hover {
+  background-color: #bfd8d9;
+  color: #263f40;
+  cursor: pointer;
+  transform:skewY(3deg);
+}
+
+.tabtext {
+  width: 1.5rem;
+  height: auto;
+  writing-mode: vertical-rl;
+  padding:0px;
+  margin:0px;
+  font-style: normal;
+}

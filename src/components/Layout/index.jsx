@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Header from "../Header";
+import Navbar from "../Navbar";
 
 // Global styles and component-specific styles.
 import "./global.css";
@@ -10,9 +11,11 @@ const Layout = ({ children }) => (
   <div>
     <Helmet title="NueReview" />
     <main className={styles.page}>
+      <Navbar/>
       <Header />
       {children}
     </main>
+
   </div>
 );
 
