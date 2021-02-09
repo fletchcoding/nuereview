@@ -5,11 +5,11 @@ This is an implementation of my place review system using ReactJS and Gatsby.
 The site is connected to a Firebase/Firestore backend.
 
 # TODO:
-- Home page description of the system
 - Profile page for user
-    - Side tab link off .page css
+    - Side tab link off .page
 - Search function to find venues
-    - Search function server-side implement places API as data source
+    - CURRENT TASK
+        - Implementing firebase function to communicate with Google places API and return a placeID
 - Review form
 - Scorecard function
     - Server-side function to calculate attribute scores
