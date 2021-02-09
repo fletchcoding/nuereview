@@ -20,6 +20,7 @@ const Layout = ({ children }) => {
           <Navbar />
           <Header />
           <Searchbar />
+          <br />
           {children}
         </Context.Provider>
       </main>
