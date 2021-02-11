@@ -62,3 +62,6 @@ bundle-stats.json
 .env.*
 .env
 !.env.sample
+
+#External firebase files
+firebase/

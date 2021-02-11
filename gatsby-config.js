@@ -37,6 +37,6 @@ module.exports = {
           appId: process.env.GATSBY_FIREBASE_APP_ID,
         }
       }
-    }
+    },
   ]
 }

@@ -19,9 +19,14 @@ const View = ({ title, children }) => {
         .doc(context)
         .get()
         .then((doc) => {
-          const data = doc.data();
-          setPlacedata({ place: data });
+          setPlacedata({ place: doc.data() });
+          setContext(null);
         });
+    }
+
+    if (placedata != null) {
+      console.log(placedata.place);
+      setPlacedata(null);
     }
   });
 
@@ -29,22 +34,22 @@ const View = ({ title, children }) => {
   if (!placedata) {
     output = (
       <div>
-        <h1>{ title }</h1>
-        { children }
+        <h1>{title}</h1>
+        {children}
         <p>Awaiting search</p>
       </div>
     );
   } else {
     output = (
       <div>
-        <h1>{placedata.place.name}</h1>
+        <h1>Place name</h1>
         <div className="address">
-          <p>
-            {placedata.place.address.street} {placedata.place.address.suburb},
+          <p> Info1
             <br />
-            {placedata.place.address.state} {placedata.place.address.postcode}
+            Info 2
           </p>
         </div>
+        <br />
       </div>
     );
   }
