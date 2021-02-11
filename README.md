@@ -18,7 +18,6 @@ The site is connected to a Firebase/Firestore backend.
 - Place details page
 
 
-
 # Considerations
 - With seperate back-end project, there may now be duplicate TODO entries. ensure both are kept up-to-date or switch to issue/task control system.
 .

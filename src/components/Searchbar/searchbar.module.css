@@ -1,0 +1,22 @@
+.searchbarContainer {
+  max-width: 400px auto;
+  min-width: 200px auto;
+  height: 1rem auto;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  padding: 2px 15px 2px 15px;
+  background-color: #f2f2f2;
+  border-radius: 25px;
+}
+
+.textinput {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.textinput:focus::placeholder {
+  color: transparent;
+}

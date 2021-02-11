@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Marco Melilli <marcomelilli92@gmail.com>",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
     "firebase": "^7.5.0",
     "gatsby": "^2.32.3",
@@ -14,6 +15,8 @@
     "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-plugin-typography": "^2.12.0",
     "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-source-google-places": "0.0.7",
+    "node-fetch": "^2.6.1",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",

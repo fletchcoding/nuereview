@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import { isLoggedIn } from "../../utils/auth"
 import Status from "../Status";
+import { Context } from "../../utils/context";
+
 
 import styles from "./header.module.css";
 
 const Header = () => {
+  const [context, setContext] = useContext(Context);
+
+
   let userdisplay;
   if (isLoggedIn()) {
     userdisplay = (<Status />)
@@ -18,7 +23,7 @@ const Header = () => {
       {userdisplay}
     </div>
     <div className={styles.title}>
-      <Link to="/" style={{ textDecoration: 'none'}}>
+      <Link to="/" style={{ textDecoration: 'none'}} onClick={ function() {setContext(null);} }>
         <StaticQuery
           query={graphql`
             query {

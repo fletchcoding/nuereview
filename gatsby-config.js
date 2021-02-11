@@ -7,7 +7,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -38,6 +37,6 @@ module.exports = {
           appId: process.env.GATSBY_FIREBASE_APP_ID,
         }
       }
-    }
+    },
   ]
 }

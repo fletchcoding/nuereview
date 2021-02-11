@@ -1,23 +1,64 @@
-import React from "react"
-import PropTypes from "prop-types"
-import styles from "./view.module.css"
+import React, { useState, useContext, useEffect } from "react";
+import { Context } from "../../utils/context";
+import PropTypes from "prop-types";
 
-const View = ({ title, children }) => (
-    <div className="w-full bg-gray-100 rounded px-8 pt-6 pb-8 mb-4">
-      <div className="w-1/3"></div>
-      <div className="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 md:mx-24 lg:mx-64">
-        <h1 className="text-lg font-bold">{title}</h1>
+import firebase from "gatsby-plugin-firebase";
 
-        <div className="my-8">
-          {children}
-        </div>
+const View = ({ title, children }) => {
+  const [context, setContext] = useContext(Context);
+  const [placedata, setPlacedata] = useState(null);
+
+  useEffect(() => {
+    //update the document with the place data if it exists
+    if (!context) {
+      setPlacedata(null);
+    } else {
+      firebase
+        .firestore()
+        .collection("places")
+        .doc(context)
+        .get()
+        .then((doc) => {
+          setPlacedata({ place: doc.data() });
+          setContext(null);
+        });
+    }
+
+    if (placedata != null) {
+      console.log(placedata.place);
+      setPlacedata(null);
+    }
+  });
+
+  let output;
+  if (!placedata) {
+    output = (
+      <div>
+        <h1>{title}</h1>
+        {children}
+        <p>Awaiting search</p>
       </div>
-      <div className="w-1/3"></div>
-    </div>
-)
+    );
+  } else {
+    output = (
+      <div>
+        <h1>Place name</h1>
+        <div className="address">
+          <p> Info1
+            <br />
+            Info 2
+          </p>
+        </div>
+        <br />
+      </div>
+    );
+  }
+
+  return output;
+};
 
 View.propTypes = {
   title: PropTypes.string.isRequired,
-}
+};
 
-export default View
+export default View;
