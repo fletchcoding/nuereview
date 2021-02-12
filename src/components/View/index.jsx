@@ -13,7 +13,9 @@ const View = ({ title, children }) => {
 
   useEffect(() => {
     //update the document with the place data if it exists
-    if (context!=null) {
+    if (!context) {
+      setPlacedata(null);
+    } else {
       firebase
         .firestore()
         .collection("places")
@@ -21,7 +23,6 @@ const View = ({ title, children }) => {
         .get()
         .then((doc) => {
           setPlacedata({ place: doc.data() });
-          setContext(null);
         });
     }
   });
@@ -39,10 +40,10 @@ const View = ({ title, children }) => {
         <h1>{placedata.place.name}</h1>
         <div className="address">
           <p>
-            {" "}
-            Info1
+            {placedata.place.address.street}
             <br />
-            Info 2
+            {placedata.place.address.suburb}, {placedata.place.address.state}{" "}
+            {placedata.place.address.postcode}
           </p>
         </div>
         <br />

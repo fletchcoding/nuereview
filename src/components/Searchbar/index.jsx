@@ -9,11 +9,11 @@ const Searchbar = () => {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      var findAPlace = firebase.functions().httpsCallable('findAPlace');
-      findAPlace({placequery: event.target.value})
-        .then((result) => {
-          setContext(result.data);
-        })
+      var findAPlace = firebase.functions().httpsCallable("findAPlace");
+      findAPlace({ placequery: event.target.value }).then((result) => {
+        setContext(result.data);
+      });
+      event.target.value = "";
     }
   };
 
