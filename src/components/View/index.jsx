@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { navigate } from "gatsby";
 import { Context } from "../../utils/context";
 import PropTypes from "prop-types";
 
@@ -8,11 +9,11 @@ const View = ({ title, children }) => {
   const [context, setContext] = useContext(Context);
   const [placedata, setPlacedata] = useState(null);
 
+  let output;
+
   useEffect(() => {
     //update the document with the place data if it exists
-    if (!context) {
-      setPlacedata(null);
-    } else {
+    if (context!=null) {
       firebase
         .firestore()
         .collection("places")
@@ -23,28 +24,23 @@ const View = ({ title, children }) => {
           setContext(null);
         });
     }
-
-    if (placedata != null) {
-      console.log(placedata.place);
-      setPlacedata(null);
-    }
   });
 
-  let output;
   if (!placedata) {
     output = (
       <div>
         <h1>{title}</h1>
         {children}
-        <p>Awaiting search</p>
       </div>
     );
   } else {
     output = (
       <div>
-        <h1>Place name</h1>
+        <h1>{placedata.place.name}</h1>
         <div className="address">
-          <p> Info1
+          <p>
+            {" "}
+            Info1
             <br />
             Info 2
           </p>
