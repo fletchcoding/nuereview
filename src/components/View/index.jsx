@@ -3,6 +3,8 @@ import { navigate } from "gatsby";
 import { Context } from "../../utils/context";
 import PropTypes from "prop-types";
 
+import styles from "./view.module.css";
+
 import firebase from "gatsby-plugin-firebase";
 
 const View = ({ title, children }) => {
@@ -29,16 +31,16 @@ const View = ({ title, children }) => {
 
   if (!placedata) {
     output = (
-      <div>
+      <div className={styles.view}>
         <h1>{title}</h1>
         {children}
       </div>
     );
   } else {
     output = (
-      <div>
+      <div className={styles.placeHeader}>
         <h1>{placedata.place.name}</h1>
-        <div className="address">
+        <div>
           <p>
             {placedata.place.address.street}
             <br />

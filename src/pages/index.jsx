@@ -56,21 +56,21 @@ const Index = () => {
         <h2>The solution?</h2>
         <h3>Venue attributes</h3>
         <p>
-          Through the pre-definition of venue attributes, leaving feedback could be
+          Through the pre-definition of <strong>venue attributes</strong>, leaving feedback could be
           a guided process, enabling reviews to contain structured datapoints,
           that correlate to a business's goals.
-          The attribute system allows for better categorisation of venues through
+          The attribute system allows for <strong>better categorisation</strong> of venues through
           the comparison of specific traits. For example, hatted restaurants might
           be compared on their service and quality scores, whereas takeaway
           restaurants on their value and speed.
           A place's visual record would display only their positive scores,
-          abstracting away negativity and ensuring they are only quantified on
-          their merits.
+          abstracting away negativity and ensuring they are only <strong>quantified on
+          their merits</strong>.
           With an 'active' current review per-person per-place system, the negative
           feedback datapoints can then be used by businesses to understand the
           key areas that need adjustment. A platform that enables a communication
-          channel between businesses and reviewers, can facilitate opportunities
-          to improve on their previous feedback through offers to entice return
+          channel between businesses and reviewers, can <strong>facilitate opportunities
+          to improve</strong> on their previous feedback through offers to entice return
           visits.
         </p>
       </View>

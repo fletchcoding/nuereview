@@ -1,6 +1,6 @@
 .view {
-  max-width: 640px;
-  margin: 2rem auto 3rem;
+  max-width: 680px;
+  margin: 3rem auto 3rem;
 }
 
 .placeHeader {
@@ -8,5 +8,5 @@
 }
 
 .reviewBtn {
-  background-color: hotpink; 
+  background-color: hotpink;
 }

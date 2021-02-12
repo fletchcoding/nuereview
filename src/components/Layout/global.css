@@ -3,3 +3,13 @@
 *::after {
   box-sizing: border-box;
 }
+
+p {
+  color: #555;
+  line-height: 1.5;
+  padding: 0 1em;
+}
+
+h1, h2, strong {
+  color: #333;
+}
