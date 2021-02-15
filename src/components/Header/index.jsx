@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import { isLoggedIn } from "../../utils/auth"
 import Status from "../Status";
-import { Context } from "../../utils/context";
+// import { Context } from "../../utils/context";
+// <Link to="/" style={{ textDecoration: 'none'}} onClick={ function() {setContext(null);} }>
 
 
 import styles from "./header.module.css";
 
 const Header = () => {
-  const [context, setContext] = useContext(Context);
+  // const [context, setContext] = useContext(Context);
 
 
   let userdisplay;
@@ -23,7 +24,7 @@ const Header = () => {
       {userdisplay}
     </div>
     <div className={styles.title}>
-      <Link to="/" style={{ textDecoration: 'none'}} onClick={ function() {setContext(null);} }>
+      <Link to="/" style={{ textDecoration: 'none'}} >
         <StaticQuery
           query={graphql`
             query {

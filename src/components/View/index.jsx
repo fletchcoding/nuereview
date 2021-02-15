@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { navigate } from "gatsby";
-import { Context } from "../../utils/context";
+// import { Context } from "../../utils/context";
 import PropTypes from "prop-types";
 
 import styles from "./view.module.css";
@@ -8,25 +8,25 @@ import styles from "./view.module.css";
 import firebase from "gatsby-plugin-firebase";
 
 const View = ({ title, children }) => {
-  const [context, setContext] = useContext(Context);
+  // const [context, setContext] = useContext(Context);
   const [placedata, setPlacedata] = useState(null);
 
   let output;
 
   useEffect(() => {
     //update the document with the place data if it exists
-    if (!context) {
-      setPlacedata(null);
-    } else {
-      firebase
-        .firestore()
-        .collection("places")
-        .doc(context)
-        .get()
-        .then((doc) => {
-          setPlacedata({ place: doc.data() });
-        });
-    }
+    // if (!context) {
+    //   setPlacedata(null);
+    // } else {
+    //   firebase
+    //     .firestore()
+    //     .collection("places")
+    //     .doc(context)
+    //     .get()
+    //     .then((doc) => {
+    //       setPlacedata({ place: doc.data() });
+    //     });
+    // }
   });
 
   if (!placedata) {

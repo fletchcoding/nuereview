@@ -1,27 +1,25 @@
-import React, { useState } from "react";
-import { Context } from "../../utils/context";
+import React from "react";
 import { Helmet } from "react-helmet";
 import Header from "../Header";
 import Navbar from "../Navbar";
-import Searchbar from "../Searchbar";
+import Body from "../Body";
+
+import SearchContextProvider from "../Contexts/search-context";
 
 // Global styles and component-specific styles.
 import "./global.css";
 import styles from "./main.module.css";
 
 const Layout = ({ children }) => {
-  const [context, setContext] = useState(null);
-
   return (
     <div>
       <Helmet title="NueReview" />
       <main className={styles.page}>
-        <Context.Provider value={[context, setContext]}>
+        <SearchContextProvider>
           <Navbar />
           <Header />
-          <Searchbar />
-          {children}
-        </Context.Provider>
+          <Body>{children}</Body>
+        </SearchContextProvider>
       </main>
     </div>
   );
