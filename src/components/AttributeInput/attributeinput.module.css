@@ -1,0 +1,58 @@
+.container {
+  clear: left;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  height: 1.5rem;
+}
+
+.container > div {
+  display: inline-block;
+  float: left;
+  margin: 0px 5px;
+  height:auto;
+}
+
+.poorBtnUnselected {
+  margin-top:5px;
+  padding: 5px;
+  border-radius: 25%;
+  background-color: #fff;
+  color: black;
+}
+.poorBtnUnselected:hover {
+  cursor: pointer;
+}
+
+.poorBtnSelected {
+  margin-top:5px;
+  padding: 5px;
+  border-radius: 25%;
+  background-color: #eee;
+  color: red;
+}
+.poorBtnSelected:hover {
+  cursor: pointer;
+}
+
+.goodBtnUnselected {
+  margin-top:5px;
+  padding: 5px;
+  border-radius: 25%;
+  background-color: #fff;
+  color: black;
+}
+.goodBtnUnselected:hover {
+  cursor: pointer;
+}
+
+.goodBtnSelected {
+  margin-top:5px;
+  padding: 5px;
+  border-radius: 25%;
+  background-color: #eee;
+  color: green;
+}
+.goodBtnSelected:hover {
+  cursor: pointer;
+}

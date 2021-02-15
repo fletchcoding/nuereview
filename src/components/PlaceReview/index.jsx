@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import AttributeInput from "../AttributeInput";
 
 import styles from "./placereview.module.css";
 
 const PlaceReview = () => {
-  return (<div className={styles.reviewForm}>Review form</div>);
+  const [food, setFood] = useState("");
+
+  return (<div><AttributeInput attribute="Food" feedback={food} setFeedback={setFood} /></div>);
 }
 
 export default PlaceReview;
