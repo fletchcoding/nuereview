@@ -1,0 +1,19 @@
+.content {
+  max-width: 680px;
+  margin: 3rem auto 3rem;
+}
+
+.header {
+  height: 200px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.details {
+  width: 70%;
+  float: left;
+}
+
+.review {
+  float: right;
+}

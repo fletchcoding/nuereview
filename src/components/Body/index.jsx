@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import Context from "../../utils/context";
 import Searchbar from "../Searchbar";
+import PlaceDetail from "../PlaceDetail";
 import { SearchContext } from "../Contexts/search-context";
+
 
 import firebase from "gatsby-plugin-firebase";
 
@@ -14,7 +16,8 @@ const Body = ({ children }) => {
   // context hook for posting search query
   useEffect(() => {
     if (searchContext.placequery != "") {
-      setPlaceOutput(<div>Loading place data ...</div>)
+      setPlaceOutput(<div>Loading place data ...
+        <div style={{height: "500px"}} /></div>)
       var findAPlace = firebase.functions().httpsCallable("findAPlace");
       findAPlace(searchContext).then((result) => setPlaceId(result.data));
     }
@@ -40,15 +43,9 @@ const Body = ({ children }) => {
     if (placeData) {
       console.log(placeData);
       setPlaceOutput(
-        <div>
-          <h1>{placeData.name}</h1>
-          <p>
-            {placeData.address.street}
-            <br />
-            {placeData.address.suburb}, {placeData.address.state}{" "}
-            {placeData.address.postcode}
-          </p>
-        </div>
+        <PlaceDetail
+          placeId={placeId}
+          placeData={placeData} />
       );
     }
   }, [placeData]);
