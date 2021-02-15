@@ -16,13 +16,9 @@ const Body = ({ children }) => {
   // context hook for posting search query
   useEffect(() => {
     if (searchContext.placequery != "") {
+      setPlaceOutput(<p>Loading place information ...</p>);
       var findAPlace = firebase.functions().httpsCallable("findAPlace");
-      findAPlace(searchContext).then((result) => {
-        if(placeId != result.data) {
-          setPlaceOutput(<div>Loading place data ...</div>)
-          setPlaceId(result.data);
-        }
-      });
+      findAPlace(searchContext).then((result) => setPlaceId(result.data));
     }
   }, [searchContext]);
 

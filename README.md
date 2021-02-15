@@ -17,6 +17,7 @@ a Firebase Firestore NoSQL backend, using Firebase functions for server operatio
     - Server-side function to calculate attribute scores
 - Place details page
 - Clicking title should clear context and return to default description view.
+- If entry does not exist, Placedetails does not progress to displaying data
 
 
 # Considerations

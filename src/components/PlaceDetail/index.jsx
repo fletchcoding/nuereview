@@ -14,7 +14,7 @@ const PlaceDetail = ({ placeData }) => {
           {placeData.address.postcode}
         </p>
       </div>
-      <div>Scorecare here</div>
+      <div>Scorecard here</div>
     </div>
   );
 
