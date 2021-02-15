@@ -4,16 +4,32 @@
 }
 
 .header {
-  height: 200px;
   width: 100%;
   margin: 0px auto;
 }
 
-.details {
+.address {
+  margin-top: 0px;
+  clear: left;
+}
+
+.name {
   width: 70%;
   float: left;
 }
 
+.nametext {
+  display: inline-block;
+}
+
+.nametext:hover {
+  cursor: pointer;
+}
+
 .review {
   float: right;
+}
+
+.reviewBtn:hover {
+  cursor: pointer;
 }

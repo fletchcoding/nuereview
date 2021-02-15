@@ -44,7 +44,6 @@ const Body = ({ children }) => {
       console.log(placeData);
       setPlaceOutput(
         <PlaceDetail
-          placeId={placeId}
           placeData={placeData} />
       );
     }
