@@ -16,16 +16,20 @@ const Body = ({ children }) => {
   // context hook for posting search query
   useEffect(() => {
     if (searchContext.placequery != "") {
-      setPlaceOutput(<div>Loading place data ...
-        <div style={{height: "500px"}} /></div>)
       var findAPlace = firebase.functions().httpsCallable("findAPlace");
-      findAPlace(searchContext).then((result) => setPlaceId(result.data));
+      findAPlace(searchContext).then((result) => {
+        if(placeId != result.data) {
+          setPlaceOutput(<div>Loading place data ...</div>)
+          setPlaceId(result.data);
+        }
+      });
     }
   }, [searchContext]);
 
   // placeID hook for firebase get document
   useEffect(() => {
     if (placeId) {
+
       console.log(placeId);
       firebase
         .firestore()

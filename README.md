@@ -1,11 +1,11 @@
 # NueReview
 ## A venue review system
 
-This is an implementation of my place review system using ReactJS and Gatsby.
-The site is connected to a Firebase/Firestore backend.
+This is an implementation of my place review system using ReactJS and Gatsby with
+a Firebase Firestore NoSQL backend, using Firebase functions for server operations.
 
 # TODO:
-- Seperate authenticated routes from inital page to allow for page creation.
+- Seperate authenticated routes from initial page to allow for page creation.
 - Profile page for user + nav
 - Search function to find venues
     - Upgrade to 'Full text search'
@@ -16,6 +16,7 @@ The site is connected to a Firebase/Firestore backend.
 - Scorecard function
     - Server-side function to calculate attribute scores
 - Place details page
+- Clicking title should clear context and return to default description view.
 
 
 # Considerations

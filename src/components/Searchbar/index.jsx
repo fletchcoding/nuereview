@@ -14,6 +14,7 @@ const Searchbar = () => {
     searchContext.searchHandler(searchQuery);
   };
 
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       searchQueryHandler();
