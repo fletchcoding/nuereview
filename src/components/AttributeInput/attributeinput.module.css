@@ -1,9 +1,28 @@
+.seperator {
+  padding-top: 5px;
+  width: 290px;
+  border-bottom: 1px solid salmon;
+
+}
+
 .container {
   clear: left;
   display: flex;
   flex-direction: row;
   align-content: center;
-  height: 1.5rem;
+
+}
+
+
+.attributeNameDiv {
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.attributeText {
+  text-align: center;
 }
 
 .container > div {
@@ -12,6 +31,7 @@
   margin: 0px 5px;
   height:auto;
 }
+
 
 .poorBtnUnselected {
   margin-top:5px;
@@ -28,8 +48,9 @@
   margin-top:5px;
   padding: 5px;
   border-radius: 25%;
-  background-color: #eee;
+  background-color: #fff;
   color: red;
+  box-shadow: 1px 1px 3px 1px gray;
 }
 .poorBtnSelected:hover {
   cursor: pointer;
@@ -50,8 +71,9 @@
   margin-top:5px;
   padding: 5px;
   border-radius: 25%;
-  background-color: #eee;
+  background-color: #fff;
   color: green;
+  box-shadow: 1px 1px 3px 1px gray;
 }
 .goodBtnSelected:hover {
   cursor: pointer;
