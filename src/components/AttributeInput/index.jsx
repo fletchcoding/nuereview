@@ -34,7 +34,7 @@ const AttributeInput = ({ attribute, feedback, setFeedback }) => {
           <MdThumbDown />
         </div>
         <div className={styles.attributeNameDiv}>
-          <h3 className={styles.attributeText}>{attribute}</h3>
+          <h4 className={styles.attributeText}>{attribute}</h4>
         </div>
         <div
           className={
