@@ -1,12 +1,10 @@
-import React, { useContext, useState } from "react";
-// import { Context } from "../../utils/context";
+import React, { useContext, useState, useEffect } from "react";
 import { SearchContext } from "../Contexts/search-context";
 import styles from "./searchbar.module.css";
 
 
 
 const Searchbar = () => {
-  // const [context, setContext] = useContext(Context);
   const [searchQuery, setSearchQuery] = useState("");
   const searchContext = useContext(SearchContext);
 
@@ -18,25 +16,15 @@ const Searchbar = () => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       searchQueryHandler();
-      // var findAPlace = firebase.functions().httpsCallable("findAPlace");
-      // findAPlace({ placequery: event.target.value }).then((result) => {
-      //   console.log(result.data);
-      //   setContext(result.data);
-      // });
-      // event.target.value = "";
     }
   };
 
-  // return (
-  //   <div className={styles.searchbarContainer}>
-  //     <input
-  //       type="text"
-  //       placeholder="Search..."
-  //       className={styles.textinput}
-  //       onKeyDown={handleKeyDown}
-  //     />
-  //   </div>
-  // );
+  useEffect(() => {
+    if (searchContext.placequery == "") {
+      setSearchQuery("");
+    }
+  }, [searchContext]);
+
   return (
     <div className={styles.searchbarContainer}>
       <input

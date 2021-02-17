@@ -19,6 +19,8 @@ const Body = ({ children }) => {
       setPlaceOutput(<p>Loading place information ...</p>);
       var findAPlace = firebase.functions().httpsCallable("findAPlace");
       findAPlace(searchContext).then((result) => setPlaceId(result.data));
+    } else if (searchContext.placequery == "") {
+      setPlaceOutput(children);
     }
   }, [searchContext]);
 
