@@ -5,8 +5,8 @@ This is an implementation of my place review system using ReactJS and Gatsby wit
 a Firebase Firestore NoSQL backend, using Firebase functions for server operations.
 
 # TODO:
-- Seperate authenticated routes from initial page to allow for page creation.
-- Profile page for user + nav
+- Profile page
+  - Lists user's most-current reviews by date.
 - Search function to find venues
     - Upgrade to 'Full text search'
         - https://firebase.google.com/docs/firestore/solutions/search
@@ -15,9 +15,14 @@ a Firebase Firestore NoSQL backend, using Firebase functions for server operatio
 - Review form
 - Scorecard function
     - Server-side function to calculate attribute scores
-- Place details page
-- Clicking title should clear context and return to default description view.
-- If entry does not exist, Placedetails does not progress to displaying data
+- Place details
+  - Scorecard displayed as badges
+
+# ISSUES:
+- When a place is not found in firestore, PlaceDetails returns null place,
+  - I believe this is due to the background processing within the onCreate firestore function.
+  Will need to find a way to either delay the request from the web-page to retrieve details,
+  or do the onCreate processing beforehand.
 
 
 # Considerations
