@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import PlaceReview from "../PlaceReview";
+import React, { useState, useEffect } from "react"
+import { Link, navigate } from "gatsby"
+import PlaceReview from "../PlaceReview"
+import View from "../View"
 
 import styles from "./placedetail.module.css";
 
-const PlaceDetail = ({ placeData }) => {
+const PlaceDetail = ({ placeId, placeData }) => {
   const details = (
     <div>
       <div className={styles.address}>
@@ -18,39 +20,25 @@ const PlaceDetail = ({ placeData }) => {
     </div>
   );
 
-  const [content, setContent] = useState(details);
-  const [reviewFlag, setReviewFlag] = useState(false);
-
-  const reviewClick = function () {
-    setContent(<PlaceReview />);
-    setReviewFlag(true);
-  };
-  const nameClick = function () {
-    setContent(details);
-    setReviewFlag(false);
-  };
-
   return (
-    <section className={styles.content}>
+    <View>
       <div className={styles.header}>
         <div className={styles.name}>
-          <h1 className={styles.nametext} onClick={() => nameClick()}>
-            {placeData.name}
-          </h1>
+          <h1 className={styles.nametext}>{placeData.name}</h1>
         </div>
         <div className={styles.review}>
-          {!reviewFlag ? (
+          <Link to="/app/placereview"
+            state={{ placeId: placeId, placeName:placeData.name}}>
             <input
               className={styles.reviewBtn}
               type="button"
               value="Leave a review"
-              onClick={() => reviewClick()}
             />
-          ) : null}
+          </Link>
         </div>
       </div>
-      {content}
-    </section>
+      {details}
+    </View>
   );
 };
 

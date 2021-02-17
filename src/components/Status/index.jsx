@@ -2,6 +2,7 @@ import React from "react"
 import { Link, navigate } from "@reach/router"
 import { getUser, isLoggedIn, logout } from "../../utils/auth"
 import firebase from "gatsby-plugin-firebase"
+import styles from "./status.module.css"
 
 export default () => {
 
@@ -15,12 +16,11 @@ export default () => {
   } else {
     const { displayName, email } = getUser()
     details = (
-      <p className="text-right px-5">
-        Logged in as {displayName} ({email}
-        )!
-        {` `}
+      <p className={styles.statusText}>
+        Logged in as {displayName}
+        {`. `}
         <a href="/" onClick={event => { event.preventDefault(); logout(firebase).then(() => navigate(`/app/login`)) }}>
-          <u>log out</u>
+          <u>Log out?</u>
         </a>
       </p>
     )

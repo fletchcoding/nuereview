@@ -22,10 +22,6 @@
   display: inline-block;
 }
 
-.nametext:hover {
-  cursor: pointer;
-}
-
 .review {
   float: right;
 }

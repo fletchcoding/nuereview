@@ -12,8 +12,10 @@
 .userStatus {
   display: inline-block;
   position:absolute;
-  right: 5px;;
-  top: 0;
+  height: auto;
+  right: -20px;;
+  top: -10px;
+  height: 1.5rem;
 }
 
 .title {
