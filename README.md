@@ -14,7 +14,7 @@ a Firebase Firestore NoSQL backend, using Firebase functions for server operatio
         - Followed by current google places api place search and details collection
 - Review form
   - Include time windows with visit information
-  - Date input must have constraints:
+  - Calendar input must have constraints:
     - Restrict to recent past (1month)
     - Restrict future
     - Restrict business open days.

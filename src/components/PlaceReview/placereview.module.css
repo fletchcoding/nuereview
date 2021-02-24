@@ -21,7 +21,24 @@
   margin: 10px;
 }
 
-.formDateContainer > p {
+.formErrorContainer {
+  width: 15em;
+  height: 100%;
+  color: #D8000C;
+}
+.formErrorContainer > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+  background-color: #FFD2D2;
+}
+
+.formDateContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.formDateColumn > p {
   margin:0px;
 }
 

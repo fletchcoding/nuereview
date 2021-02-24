@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AttributeInput from "../AttributeInput";
 import DatePicker from "react-date-picker";
+import { MdErrorOutline } from "react-icons/md";
 import View from "../View";
 import styles from "./placereview.module.css";
 
@@ -18,21 +19,20 @@ const FEEDBACKS = [
 ];
 
 const ERRORS = {
-  "LT": "Please rate at least, 3 attributes.",
-  "GT": "Please rate at most, 5 attributes.",
-  "ND": "Visit date required.",
-  "FD": "Visit date must be the past",
-  "PD": "Visit date must be within 1 month",
+  LT: "Please rate at least, 3 attributes.",
+  GT: "Please rate at most, 5 attributes.",
+  ND: "Visit date required.",
+  FD: "Visit date must be the past",
+  PD: "Visit date must be within 1 month",
 };
 
 const PlaceReview = ({ placeId, placeName }) => {
   const [date, setDate] = useState(null);
-  const [errors, setErrors] = useState("");
-
+  const [errors, setErrors] = useState([]);
 
   const [atmosphere, setAtmosphere] = useState(null);
   const [cleanliness, setCleanliness] = useState(null);
-  const [decor, setDecor] = useState(null)
+  const [decor, setDecor] = useState(null);
   const [drink, setDrink] = useState(null);
   const [entertainment, setEntertainment] = useState(null);
   const [food, setFood] = useState(null);
@@ -41,13 +41,13 @@ const PlaceReview = ({ placeId, placeName }) => {
   const [value, setValue] = useState(null);
   const [variety, setVariety] = useState(null);
 
-/** countAttrs()
- *    counts attributes with non-null ratings
- *    returns the count
- */
+  /** countAttrs()
+   *    counts attributes with non-null ratings
+   *    returns the count
+   */
   const countAttrs = () => {
     var count = 0;
-    for (var i=0; i<FEEDBACKS.length; i++) {
+    for (var i = 0; i < FEEDBACKS.length; i++) {
       if (eval(FEEDBACKS[i])) {
         count++;
       }
@@ -55,13 +55,13 @@ const PlaceReview = ({ placeId, placeName }) => {
     return count;
   };
 
-/** compareDateInMonths()
- *    compares a date to today.
- *    param d the date to compare
- *    returns 1 if in the future
- *    returns 0 if in the past and within a month
- *    returns -1 if further in the past
- */
+  /** compareDateInMonths()
+   *    compares a date to today.
+   *    param d the date to compare
+   *    returns 1 if in the future
+   *    returns 0 if in the past and within a month
+   *    returns -1 if further in the past
+   */
   const compareDateInMonths = (d) => {
     var td = new Date(Date.now());
     var vd = new Date(Date.parse(d));
@@ -96,36 +96,40 @@ const PlaceReview = ({ placeId, placeName }) => {
         }
       }
     }
-  }
+  };
 
-/** trySubmit()
- *    handles form validation and submission
- *    updates error state
- *    or submits review
- */
+  /** trySubmit()
+   *    handles form validation and submission
+   *    updates error state
+   *    or submits review
+   */
   const trySubmit = () => {
     var e = [];
+    // Attrubute validation
     var c = countAttrs();
+    if (c < 3) {
+      e.push("LT");
+    } else if (c > 5) {
+      e.push("GT");
+    }
+
+    // Date validation
     if (!date) {
       e.push("ND");
     } else {
       var d = compareDateInMonths(date);
-      if (c<3) {
-        e.push("LT");
-      } else if (c>5) {
-        e.push("GT");
-      }
-      if (d<0) {
+      if (d < 0) {
         e.push("PD");
-      } else if (d>0) {
+      } else if (d > 0) {
         e.push("FD");
       }
     }
+    // Update state
     setErrors(e);
     if (e.length == 0) {
       console.log("SUBMIT!");
     } else {
-      for(var i=0; i<e.length; i++) {
+      for (var i = 0; i < e.length; i++) {
         console.log(e[i]);
       }
     }
@@ -187,15 +191,26 @@ const PlaceReview = ({ placeId, placeName }) => {
           />
         </div>
         <div className={styles.formSubmitColumn}>
+          <div className={styles.formErrorContainer}>
+            <ul>
+              {errors.map((value, index) => {
+                return <li key={index}><MdErrorOutline style={{verticalAlign: 'middle'}}/> {ERRORS[value]}</li>;
+              })}
+            </ul>
+          </div>
           <div className={styles.formDateContainer}>
-            <p>Enter a visit date:</p>
-            <DatePicker onChange={setDate} value={date} />
+            <div className={styles.formDateColumn}>
+              <p>Enter a visit date:</p>
+              <DatePicker onChange={setDate} value={date} />
+            </div>
           </div>
           <div className={styles.formSubmitContainer}>
-            <input className={styles.btnSubmit}
-            type="button"
-            value="Submit review"
-            onClick={trySubmit}/>
+            <input
+              className={styles.btnSubmit}
+              type="button"
+              value="Submit review"
+              onClick={trySubmit}
+            />
           </div>
         </div>
       </div>
