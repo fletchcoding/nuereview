@@ -161,30 +161,44 @@ const PlaceReview = ({ placeId, placeName }) => {
    *   submits the form data to firestore document
    */
   const submit = () => {
-    const doc_name = String(Date.parse(date)) + "_" + String(uid);
+    const docId = String(Date.parse(date)) + "_" + String(uid);
     const feedback = getAttrFeedbacks();
     const data = {
+      docId: docId,
       placeId: placeId,
-      userId: uid,
-      visitDate: date,
-      good: feedback["good"],
-      poor: feedback["poor"]
+      review: {
+        userId: uid,
+        visitDate: Date.parse(date),
+        good: feedback["good"],
+        poor: feedback["poor"],
+      },
     };
-    firebase
-      .firestore()
-      .collection("reviews")
-      .doc(doc_name)
-      .set(data)
-      .then(() => {
-        console.log("Review posted...");
-      })
-      .then(() => {
-        console.log("Navigate back to place details.");
+    // firebase
+    //   .firestore()
+    //   .collection("places")
+    //   .doc(placeId)
+    //   .collection("reviews")
+    //   .doc(doc_name)
+    //   .set(data)
+    //   .then(() => {
+    //     console.log("Review posted...");
+    //   })
+    //   .then(() => {
+    //     console.log("Navigate back to place details.");
+    //     navigate("/");
+    //   })
+    //   .catch((error) => {
+    //     console.log("Error writing document: ", error);
+    //   })
+    var postReview = firebase.functions().httpsCallable("createNewReview");
+    postReview(data)
+      .then((result) => {
+        console.log(result);
         navigate("/");
       })
       .catch((error) => {
         console.log("Error writing document: ", error);
-      })
+      });
   };
 
   return (

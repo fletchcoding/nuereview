@@ -13,11 +13,12 @@ a Firebase Firestore NoSQL backend, using Firebase functions for server operatio
         - Initally search firestore documents for matching place information (Name, address etc)
         - Followed by current google places api place search and details collection
 - Review form
-  - Include time windows with visit information
+  - Add visit's time window to date/time information
   - Calendar input must have constraints:
     - Restrict to recent past (1month)
     - Restrict future
     - Restrict business open days.
+  - OnSubmit redirect to place details.
 
 - Scorecard function
     - Server-side function to calculate attribute scores
