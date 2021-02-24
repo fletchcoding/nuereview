@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import AttributeInput from "../AttributeInput";
-import DatePicker from "react-date-picker";
-import { MdErrorOutline } from "react-icons/md";
-import View from "../View";
-import styles from "./placereview.module.css";
+import React, { useState } from "react"
+import { navigate } from "gatsby"
+import AttributeInput from "../AttributeInput"
+import DatePicker from "react-date-picker"
+import { MdErrorOutline } from "react-icons/md"
+import View from "../View"
+import { getUser } from "../../utils/auth"
+import firebase from "gatsby-plugin-firebase"
+import styles from "./placereview.module.css"
 
 const FEEDBACKS = [
   "atmosphere",
@@ -41,19 +44,37 @@ const PlaceReview = ({ placeId, placeName }) => {
   const [value, setValue] = useState(null);
   const [variety, setVariety] = useState(null);
 
+  const user = getUser();
+  const { uid } = user;
+
+
+
+  /** getAttrFeedbacks
+   *    collects the rated attributes
+   *    returns a map of good and bad rated attributes
+   */
+  const getAttrFeedbacks = () => {
+    var good = [];
+    var poor = [];
+    for (var i = 0; i < FEEDBACKS.length; i++) {
+      if (eval(FEEDBACKS[i]) === "good") {
+        good.push(FEEDBACKS[i]);
+      } else if (eval(FEEDBACKS[i]) === "poor") {
+        poor.push(FEEDBACKS[i]);
+      }
+    }
+    return {good: good, poor: poor};
+  }
+
   /** countAttrs()
-   *    counts attributes with non-null ratings
+   *    counts attributes with ratings
    *    returns the count
    */
   const countAttrs = () => {
-    var count = 0;
-    for (var i = 0; i < FEEDBACKS.length; i++) {
-      if (eval(FEEDBACKS[i])) {
-        count++;
-      }
-    }
-    return count;
+    var attrs = getAttrFeedbacks();
+    return attrs["good"].length + attrs["poor"].length;
   };
+
 
   /** compareDateInMonths()
    *    compares a date to today.
@@ -126,13 +147,44 @@ const PlaceReview = ({ placeId, placeName }) => {
     }
     // Update state
     setErrors(e);
-    if (e.length == 0) {
+    if (e.length === 0) {
       console.log("SUBMIT!");
+      submit();
     } else {
       for (var i = 0; i < e.length; i++) {
         console.log(e[i]);
       }
     }
+  };
+
+  /** submit()
+   *   submits the form data to firestore document
+   */
+  const submit = () => {
+    const doc_name = String(Date.parse(date)) + "_" + String(uid);
+    const feedback = getAttrFeedbacks();
+    const data = {
+      placeId: placeId,
+      userId: uid,
+      visitDate: date,
+      good: feedback["good"],
+      poor: feedback["poor"]
+    };
+    firebase
+      .firestore()
+      .collection("reviews")
+      .doc(doc_name)
+      .set(data)
+      .then(() => {
+        console.log("Review posted...");
+      })
+      .then(() => {
+        console.log("Navigate back to place details.");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("Error writing document: ", error);
+      })
   };
 
   return (

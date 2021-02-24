@@ -1,11 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
-import Context from "../../utils/context";
-import Searchbar from "../Searchbar";
-import PlaceDetail from "../PlaceDetail";
-import { SearchContext } from "../Contexts/search-context";
-
-
-import firebase from "gatsby-plugin-firebase";
+import React, { useState, useContext, useEffect } from "react"
+import Context from "../../utils/context"
+import Searchbar from "../Searchbar"
+import PlaceDetail from "../PlaceDetail"
+import { SearchContext } from "../Contexts/search-context"
+import firebase from "gatsby-plugin-firebase"
 
 const Body = ({ children }) => {
   const [placeId, setPlaceId] = useState(null);
