@@ -22,29 +22,31 @@ const AttributeInput = ({ attribute, feedback, setFeedback }) => {
 
   return (
     <div className={styles.seperator}>
-      <div className={styles.container}>
-        <div
-          className={
-            feedback === "poor"
-              ? styles.poorBtnSelected
-              : styles.poorBtnUnselected
-          }
-          onClick={rateDown}
-        >
-          <MdThumbDown />
-        </div>
-        <div className={styles.attributeNameDiv}>
+      <div className={styles.feedbackContainer}>
+        <div className={styles.attributeNameContainer}>
           <h4 className={styles.attributeText}>{attribute}</h4>
         </div>
-        <div
-          className={
-            feedback === "good"
-              ? styles.goodBtnSelected
-              : styles.goodBtnUnselected
-          }
-          onClick={rateUp}
-        >
-          <MdThumbUp />
+        <div className={styles.thumbsBtnsContainer}>
+          <div
+            className={
+              feedback === "poor"
+                ? styles.poorBtnSelected
+                : styles.poorBtnUnselected
+            }
+            onClick={rateDown}
+          >
+            <MdThumbDown style={{ verticalAlign: "middle" }} />
+          </div>
+          <div
+            className={
+              feedback === "good"
+                ? styles.goodBtnSelected
+                : styles.goodBtnUnselected
+            }
+            onClick={rateUp}
+          >
+            <MdThumbUp />
+          </div>
         </div>
       </div>
     </div>

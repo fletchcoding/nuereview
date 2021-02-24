@@ -7,8 +7,9 @@
 }
 
 .formAttributeBtns {
-  width:40%;
-  overflow:hidden;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
 }
 
 .seperator {
@@ -16,5 +17,7 @@
 }
 
 .formSubmitBtns {
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
 }

@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import AttributeInput from "../AttributeInput"
-import DatePicker from "react-date-picker"
-import View from "../View"
-import styles from "./placereview.module.css"
+import React, { useState } from "react";
+import AttributeInput from "../AttributeInput";
+import DatePicker from "react-date-picker";
+import View from "../View";
+import styles from "./placereview.module.css";
 
 const FEEDBACKS = [
   "atmosphere",
@@ -17,7 +17,7 @@ const FEEDBACKS = [
   "variety",
 ];
 
-const PlaceReview = ({placeId, placeName}) => {
+const PlaceReview = ({ placeId, placeName }) => {
   const [date, setDate] = useState(new Date());
   const [atmosphere, setAtmosphere] = useState(null);
   const [cleanliness, setCleanliness] = useState(null);
@@ -79,7 +79,6 @@ const PlaceReview = ({placeId, placeName}) => {
             setFeedback={setVariety}
           />
         </div>
-        <div className={styles.seperator}></div>
         <div className={styles.formSubmitBtns}>
           <DatePicker onChange={setDate} value={date} />
           <input type="button" value="Submit review" />

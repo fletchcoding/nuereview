@@ -1,53 +1,58 @@
 .seperator {
   padding-top: 5px;
   width: 100%;
-  border-bottom: 1px solid salmon;
-
 }
 
-.container {
+.feedbackContainer {
   clear: left;
+  margin-right: 10px;
   display: flex;
   flex-direction: row;
   align-content: center;
-
 }
 
-
-.attributeNameDiv {
+.attributeNameContainer {
+  margin-right: 5px;
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-content: center;
+  justify-content: right;
+  align-items: center;
 }
 
 .attributeText {
-  text-align: center;
-}
-
-.container > div {
+  color: #555;
+  margin-top: auto;
+  margin-bottom: auto;
   display: inline-block;
-  float: left;
-  margin: 0px 5px;
-  height:auto;
+  text-transform: capitalize;
 }
 
+.thumbsBtnsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.thumbsBtnsContainer > div {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 25%;
+  display: flex;
+}
 
 .poorBtnUnselected {
-  margin-top:5px;
-  padding: 5px;
-  border-radius: 25%;
   background-color: #fff;
-  color: black;
+  color: #666;
 }
 .poorBtnUnselected:hover {
   cursor: pointer;
 }
 
 .poorBtnSelected {
-  margin-top:5px;
-  padding: 5px;
-  border-radius: 25%;
   background-color: #fff;
   color: red;
   box-shadow: 1px 1px 3px 1px gray;
@@ -57,20 +62,14 @@
 }
 
 .goodBtnUnselected {
-  margin-top:5px;
-  padding: 5px;
-  border-radius: 25%;
   background-color: #fff;
-  color: black;
+  color: #666;
 }
 .goodBtnUnselected:hover {
   cursor: pointer;
 }
 
 .goodBtnSelected {
-  margin-top:5px;
-  padding: 5px;
-  border-radius: 25%;
   background-color: #fff;
   color: green;
   box-shadow: 1px 1px 3px 1px gray;
