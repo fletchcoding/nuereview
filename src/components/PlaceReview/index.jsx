@@ -32,7 +32,7 @@ const PlaceReview = ({ placeId, placeName }) => {
   return (
     <View title={placeName}>
       <div className={styles.formContainer}>
-        <div className={styles.formAttributeBtns}>
+        <div className={styles.formAttributesColumn}>
           <AttributeInput
             attribute="atmosphere"
             feedback={atmosphere}
@@ -79,9 +79,14 @@ const PlaceReview = ({ placeId, placeName }) => {
             setFeedback={setVariety}
           />
         </div>
-        <div className={styles.formSubmitBtns}>
-          <DatePicker onChange={setDate} value={date} />
-          <input type="button" value="Submit review" />
+        <div className={styles.formSubmitColumn}>
+          <div className={styles.formDateContainer}>
+            <p>Enter a visit date:</p>
+            <DatePicker onChange={setDate} value={date} />
+          </div>
+          <div className={styles.formSubmitContainer}>
+            <input className={styles.btnSubmit} type="button" value="Submit review" />
+          </div>
         </div>
       </div>
     </View>
